@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(./custom.css);
+
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+h1 {
+  @apply lg:text-5xl text-3xl font-bold;
+}
+h2 {
+  @apply xl:text-5xl lg:text-3xl text-2xl;
+}
+
+p {
+  @apply text-[18px];
+  @apply leading-7;
+  @apply text-[#164A8C];
+  @apply font-medium;
+}

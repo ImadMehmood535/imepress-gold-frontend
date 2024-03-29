@@ -1,0 +1,12 @@
+.field-wrapper {
+    margin-bottom: 15px;
+}
+.field-wrapper .field-container input, .field-container textarea {
+    width: 100%;
+    padding: 10px 18px;
+    margin: 5px 0px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 2px #0000003b;
+    color: #121213;
+    font-size: 20px;
+}   

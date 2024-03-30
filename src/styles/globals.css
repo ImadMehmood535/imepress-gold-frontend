@@ -7,6 +7,8 @@
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
+   
+    
 }
 h1 {
   @apply lg:text-5xl text-3xl font-bold;

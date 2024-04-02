@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <div className="footer border-t-1 border-[#E5E5E5]">
       <div className="container xl:w-[80%] mx-auto">
-        <footer className=" text-center text-neutral-600 lg:text-left ">
+        <footer className=" text-start text-neutral-600 lg:text-left ">
           <div className="mx-6 py-10 text-center md:text-left  dark:border-neutral-500 lg:justify-between">
             <div className="grid-1 grid gap-8 md:grid-cols-5 lg:grid-cols-5">
               <div className="">
@@ -163,13 +163,13 @@ const Footer = () => {
             </div>
 
             <div className="flex justify-center">
-              <Image src={payment_methods} alt="payment_methods" width={200} height={50}/>
-              {/* <a className="mr-6 text-neutral-600 dark:text-neutral-200"></a>
-              <a className="mr-6 text-neutral-600 dark:text-neutral-200"></a>
-              <a className="mr-6 text-neutral-600 dark:text-neutral-200"></a>
-              <a className="mr-6 text-neutral-600 dark:text-neutral-200"></a>
-              <a className="mr-6 text-neutral-600 dark:text-neutral-200"></a>
-              <a className="text-neutral-600 dark:text-neutral-200"></a> */}
+              <Image
+                src={payment_methods}
+                alt="payment_methods"
+                width={200}
+                height={50}
+              />
+    
             </div>
           </div>
         </footer>

@@ -6,19 +6,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { cate1, sale_img1 } from "@/assets";
 import { FaRegHeart } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import { FaExchangeAlt } from "react-icons/fa";
-import { dailysaledata } from "@/data/dailysaledata";
+// import { dailysaledata } from "@/data/dailysaledata";
 
-const DailySale = () => {
+const DailySale = ({data, title, exp}) => {
   return (
     <div className="DailySale py-12">
       <div className="container w-full px-5 xl:w-[80%] mx-auto">
-        <h2 className="text-center text-3xl md:text-4xl mb-4">Daily Sale</h2>
+        <h2 className="text-center text-3xl md:text-4xl mb-4">{title}</h2>
         <p className="text-center text-[#A0A0A0] text-sm">
-          Top sale on this week
+          {exp}
         </p>
         <div className="slider-area mt-8">
           <Swiper
@@ -47,7 +46,7 @@ const DailySale = () => {
             modules={[Navigation]}
             className="DailySale-slider"
           >
-            {dailysaledata.map((item, index) => (
+            {data?.map((item, index) => (
               <SwiperSlide
                 key={index}
                 className="max-h-[600px] relative group/product transition cursor-pointer"
@@ -58,9 +57,11 @@ const DailySale = () => {
                       <div className="bg-themeSecondry-0 uppercase rounded-md py-1 px-4 text-white font-bold mb-2">
                         {item.tags.tag}
                       </div>
-                      <div className="bg-themePrimary-0 uppercase rounded-md py-1 px-4 text-white font-bold">
-                        {item.tags.discount}
-                      </div>
+                      {item.tags.discount && (
+                        <div className="bg-themePrimary-0 uppercase rounded-md py-1 px-4 text-white font-bold">
+                          {item.tags.discount}
+                        </div>
+                      )}
                     </div>
                     <div className="options absolute top-4  -right-20 group-hover/product:right-2">
                       <div className="options_list flex flex-wrap flex-col gap-4">
@@ -88,7 +89,7 @@ const DailySale = () => {
                     </div>
                   </div>
                   <div className="detail-area py-3">
-                    <h4 className="font-bold text-[#121212] text-2xl capitalize">
+                    <h4 className="font-bold text-[#121212] text-base capitalize">
                       {item.title}
                     </h4>
                     <div className="flex flex-wrap items-center gap-2 ">

@@ -11,14 +11,15 @@ import { FiEye } from "react-icons/fi";
 import { FaExchangeAlt } from "react-icons/fa";
 // import { dailysaledata } from "@/data/dailysaledata";
 
-const DailySale = ({data, title, exp}) => {
+const DailySale = ({ data, title, exp }) => {
   return (
-    <div className="DailySale py-12">
+    <div className="DailySale ">
       <div className="container w-full px-5 xl:w-[80%] mx-auto">
-        <h2 className="text-center text-3xl md:text-4xl mb-4">{title}</h2>
-        <p className="text-center text-[#A0A0A0] text-sm">
-          {exp}
-        </p>
+        {title && (
+          <h2 className="text-center text-3xl md:text-4xl mb-4">{title}</h2>
+        )}
+        {exp && <p className="text-center text-[#A0A0A0] text-sm">{exp}</p>}
+
         <div className="slider-area mt-8">
           <Swiper
             cssMode={true}

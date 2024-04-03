@@ -5,7 +5,7 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 
 const Benefits = () => {
   return (
-    <div className="Benefits py-5">
+    <div className="Benefits pt-12 pb-24">
       <div className="container w-full px-5 xl:w-[80%] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           <div className="img-box text-center mx-auto">

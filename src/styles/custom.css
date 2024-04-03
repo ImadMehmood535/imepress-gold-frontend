@@ -35,6 +35,14 @@
   height: 40px;
   border-radius: 50%;
 }
+.DailySale-slider .swiper-button-prev,
+.DailySale-slider .swiper-button-next {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+}
 
 .cate-slider .swiper-button-prev::after,
 .cate-slider .swiper-button-next::after {
@@ -47,7 +55,6 @@
   font-size: 15px;
   color: black;
   font-weight: 800;
-  border: 1px solid #e5e5e5;
 }
 .DailySale-slider .swiper-button-prev {
   margin-left: -15px;
@@ -67,13 +74,26 @@
   display: block;
   font-size: 4.5rem;
 }
+.view-list button:hover img {
+  background-color: black;
+  color: white;
+}
+.view-list button.active img {
+  background-color: black;
+  color: white;
+}
+.view-list button img {
+  padding: 0px !important;
+  border-radius: 6px;
+  filter: invert(-1);
+}
 @media all and (max-width: 1024px) {
-    .counter-list li{
-        padding: 10px;
-    }
-    .counter-list li span{
-        font-size: 1rem;
-    }
+  .counter-list li {
+    padding: 10px;
+  }
+  .counter-list li span {
+    font-size: 1rem;
+  }
 }
 @media all and (max-width: 768px) {
   .counter-list li {

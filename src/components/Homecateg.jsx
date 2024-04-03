@@ -12,7 +12,7 @@ import { homeCategories } from "@/data/categoriesData";
 
 const Homecateg = () => {
   return (
-    <div className="cate-slider py-4 px-4">
+    <div className="cate-slider py-4 px-4 pb-24">
       <div className="w-full  overflow-hidden">
         <Swiper
           cssMode={true}

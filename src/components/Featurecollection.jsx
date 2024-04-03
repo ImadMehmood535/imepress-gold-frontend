@@ -6,7 +6,7 @@ import React from "react";
 
 const Featurecollection = () => {
   return (
-    <div className="Featurecollection py-12">
+    <div className="Featurecollection pt-24 py-12">
       <div className="container w-full px-5 xl:w-[80%] mx-auto">
         <h2 className="text-center text-3xl md:text-4xl mb-4">
           Featured Collection

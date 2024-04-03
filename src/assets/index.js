@@ -16,5 +16,38 @@ import instafeed2 from "./images/instafeed2.jpg";
 import instafeed3 from "./images/instafeed3.jpg";
 import instafeed4 from "./images/instafeed4.jpg";
 import instafeed5 from "./images/instafeed5.jpg";
+import sale_banner from "./images/sale_banner.png";
+import Filter from "./images/Filter.svg";
+import Grid_2 from "./images/Grid_2.svg";
+import Grid_3 from "./images/Grid_3.svg";
+import Grid_4 from "./images/Grid_4.svg";
+import Grid_5 from "./images/Grid_5.svg";
+import Grid_List from "./images/Grid_List.svg";
 
-export {Header_logo, Footer_Logo, payment_methods, banner_img1, cate1, sale_img1, feature_item1, dealimg1, guarantee, delivery, phone, payment, topsaleproduct1, instafeed1, instafeed2, instafeed3, instafeed4, instafeed5};
+export {
+  Header_logo,
+  Footer_Logo,
+  payment_methods,
+  banner_img1,
+  cate1,
+  sale_img1,
+  feature_item1,
+  dealimg1,
+  guarantee,
+  delivery,
+  phone,
+  payment,
+  topsaleproduct1,
+  instafeed1,
+  instafeed2,
+  instafeed3,
+  instafeed4,
+  instafeed5,
+  sale_banner,
+  Filter,
+  Grid_2,
+  Grid_3,
+  Grid_4,
+  Grid_5,
+  Grid_List
+};

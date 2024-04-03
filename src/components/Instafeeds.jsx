@@ -11,7 +11,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 const Instafeeds = () => {
   return (
-    <div className="Instafeeds py-12">
+    <div className="Instafeeds pt-24 py-12">
       <div className="container w-full px-5 xl:w-[80%] mx-auto">
         <h2 className="text-center text-3xl md:text-4xl mb-8">
           @ImepressGold On Instagram

@@ -16,7 +16,7 @@ const InnerpageHeader = (props) => {
                 className="flex items-center text-sm text-[#A0A0A0] hover:text-themeSecondry-0 focus:outline-none focus:text-themeSecondry-0 dark:focus:text-blue-500 "
                 href="#"
               >
-                Home
+                Homepage
               </Link>
               <svg
                 className="flex-shrink-0 size-5 text-gray-400 dark:text-gray-600 mx-2"
@@ -34,12 +34,12 @@ const InnerpageHeader = (props) => {
                 />
               </svg>
             </li>
-            
+
             <li
               className="inline-flex items-center text-sm font-semibold text-[#121212] truncate "
               aria-current="page"
             >
-              Application
+              {props.breadcrums}
             </li>
           </ol>
         </div>

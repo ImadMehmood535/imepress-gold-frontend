@@ -13,6 +13,7 @@ module.exports = {
         themePrimary: ["#164A8C"],
         themeSecondry: ["#ECCA63"],
         themeBtn: ["#121212"],
+        themeGray:["E5E5E5"]
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

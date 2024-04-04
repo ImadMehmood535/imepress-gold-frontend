@@ -104,3 +104,19 @@
     font-size: calc(3.375rem * var(--smaller));
   }
 }
+
+.ql-toolbar.ql-snow {
+  display: none !important;
+}
+
+.ql-toolbar.ql-snow {
+  padding: 0px !important;
+}
+
+.ql-container.ql-snow {
+  border: none !important;
+}
+
+.ql-editor {
+  padding: 0px !important;
+}

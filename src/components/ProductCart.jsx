@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const ProductCart = ({ item }) => {
   return (
-    <div className="ProductCart">
+    <div className="ProductCart ">
       <div className="item group/product">
         <div className="image-area relative border py-14 px-10 text-center min-h-[450px] overflow-hidden flex items-center">
           <div className="tag-wrapper absolute top-2 left-2 ">
@@ -20,8 +20,8 @@ const ProductCart = ({ item }) => {
               </div>
             )}
           </div>
-          <div className="options absolute top-4  -right-20 group-hover/product:right-2">
-            <div className="options_list flex flex-wrap flex-col gap-4">
+          <div className="options absolute top-4  -right-20 transition z-20 ">
+            <div className="options_list flex flex-wrap flex-col gap-4 ">
               <div className="rounded-lg  bg-white shadow-lg px-4 py-4 ">
                 <FaRegHeart className="text-2xl" />
               </div>
@@ -38,9 +38,9 @@ const ProductCart = ({ item }) => {
             alt={item?.image}
             width={250}
             height={250}
-            className="w-full "
+            className="w-full z-10 "
           />
-          <div className="btn-area absolute -bottom-20 group-hover/product:bottom-0 left-0 right-0 py-3 px-2 bg-[#121212] text-white">
+          <div className="btn-area absolute -bottom-20  left-0 right-0 py-3 px-2 bg-[#121212] text-white">
             <Link href="/" className="cursor-pointer">
               Quick Options
             </Link>

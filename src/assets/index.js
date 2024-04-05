@@ -23,6 +23,7 @@ import Grid_3 from "./images/Grid_3.svg";
 import Grid_4 from "./images/Grid_4.svg";
 import Grid_5 from "./images/Grid_5.svg";
 import Grid_List from "./images/Grid_List.svg";
+import popupimage from "./images/popupimage.png";
 
 export {
   Header_logo,
@@ -49,5 +50,6 @@ export {
   Grid_3,
   Grid_4,
   Grid_5,
-  Grid_List
+  Grid_List,
+  popupimage
 };

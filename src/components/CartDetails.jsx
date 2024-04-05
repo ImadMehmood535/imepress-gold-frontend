@@ -3,7 +3,8 @@ import { TiArrowBack } from "react-icons/ti";
 import { GrUpdate } from "react-icons/gr";
 import { Header_logo } from "@/assets";
 
-const CartDetails = ({ cartdata }) => {
+const CartDetails = ({ product, quantities, updateQuantity, removeItem }) => {
+  
   return (
     <div className="CartDetails pt-24 py-12">
       <div className="container w-full px-5 xl:w-[80%] mx-auto">
@@ -22,8 +23,11 @@ const CartDetails = ({ cartdata }) => {
               </h3>
             </div>
 
-            {cartdata.map((item, index) => (
-              <div key={index} className="hover:bg-gray-100 py-4 px-4 border-b-1 -mx-1">
+            {product.map((item, index) => (
+              <div
+                key={index}
+                className="hover:bg-gray-100 py-4 px-4 border-b-1 -mx-1"
+              >
                 <div className="flex flex-wrap flex-col sm:flex-row items-start sm:items-center">
                   <div className="flex w-full sm:w-2/5">
                     <div className="w-36">
@@ -34,7 +38,9 @@ const CartDetails = ({ cartdata }) => {
                       />
                     </div>
                     <div className="flex flex-col  ml-4 flex-grow">
-                      <span className="font-bold text-base mb-3">{item.name}</span>
+                      <span className="font-bold text-base mb-3">
+                        {item.name}
+                      </span>
                       <span className="text-[#A0A0A0] font-medium text-sm mb-3">
                         {item.brand}
                       </span>
@@ -60,9 +66,9 @@ const CartDetails = ({ cartdata }) => {
                     <div className="flex items-center justify-center rounded-xl overflow-hidden">
                       <button
                         className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
-                        // onClick={() =>
-                        //   updateQuantity(index, quantities[index] - 1)
-                        // }
+                        onClick={() =>
+                          updateQuantity(index, quantities[index] - 1)
+                        }
                       >
                         −
                       </button>
@@ -71,9 +77,9 @@ const CartDetails = ({ cartdata }) => {
                       </div>
                       <button
                         className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 bg-gray-300 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
-                        // onClick={() =>
-                        //   updateQuantity(index, quantities[index] + 1)
-                        // }
+                        onClick={() =>
+                          updateQuantity(index, quantities[index] + 1)
+                        }
                       >
                         +
                       </button>
@@ -85,7 +91,9 @@ const CartDetails = ({ cartdata }) => {
                       <b>Total Price</b>
                     </div>
                     <span className="text-center font-bold text-base text-[#121212]">
-                      <span className="price">${(item.price * item.qtn).toFixed(2)}</span>
+                      <span className="price">
+                        ${(item.price * item.qtn).toFixed(2)}
+                      </span>
                     </span>
                   </div>
                 </div>

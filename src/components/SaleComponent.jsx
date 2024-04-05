@@ -6,6 +6,7 @@ import Salebanner from "@/components/Salebanner";
 import { dailysaledata } from "@/data/dailysaledata";
 import React, { useState } from "react";
 import Quickview from "./Quickview";
+import { featurecollection } from "@/data/featurecollection";
 
 const SaleComponent = () => {
   const [option, setOption] = useState(4);
@@ -30,7 +31,7 @@ const SaleComponent = () => {
           sorting={sorting}
         />
       </div>
-      <Quickview/>
+      <Quickview data={featurecollection}/>
       <Newsletter />
     </div>
   );

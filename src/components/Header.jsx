@@ -117,7 +117,7 @@ const Header = () => {
                 <Link
                   href="/"
                   className="text-white"
-                  onSetActive={() => setActiveLink("/")}
+                  // onSetActive={() => setActiveLink("/")}
                 >
                   Home
                 </Link>
@@ -127,7 +127,7 @@ const Header = () => {
                 <Link
                   href="/sale"
                   className="text-white"
-                  onSetActive={() => setActiveLink("features")}
+                  // onSetActive={() => setActiveLink("features")}
                 >
                   Sale
                 </Link>
@@ -136,7 +136,7 @@ const Header = () => {
                 <Link
                   href="/"
                   className="text-white"
-                  onSetActive={() => setActiveLink("pricing")}
+                  // onSetActive={() => setActiveLink("pricing")}
                 >
                   Shop
                 </Link>
@@ -145,7 +145,7 @@ const Header = () => {
                 <Link
                   href="/"
                   className="text-white"
-                  onSetActive={() => setActiveLink("pricing")}
+                  // onSetActive={() => setActiveLink("pricing")}
                 >
                   Category
                 </Link>
@@ -154,7 +154,7 @@ const Header = () => {
                 <Link
                   href="/blogs"
                   className="text-white"
-                  onSetActive={() => setActiveLink("pricing")}
+                  // onSetActive={() => setActiveLink("pricing")}
                 >
                   Blog
                 </Link>

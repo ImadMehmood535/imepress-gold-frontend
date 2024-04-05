@@ -49,6 +49,7 @@ const Homecateg = () => {
                 <Image
                   src={category.image}
                   width={500}
+                  alt="image"
                   height={500}
                   className="w-full h-full"
                 />

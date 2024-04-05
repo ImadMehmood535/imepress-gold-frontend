@@ -4,8 +4,11 @@ import { FiEye } from "react-icons/fi";
 import { FaExchangeAlt } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import useProductStore from "@/store/products";
 
 const ProductCart = ({ item }) => {
+  const { addToCart } = useProductStore();
+
   return (
     <div className="ProductCart">
       <div className="item group/product">
@@ -40,10 +43,11 @@ const ProductCart = ({ item }) => {
             height={250}
             className="w-full "
           />
-          <div className="btn-area absolute -bottom-20 group-hover/product:bottom-0 left-0 right-0 py-3 px-2 bg-[#121212] text-white">
-            <Link href="/" className="cursor-pointer">
-              Quick Options
-            </Link>
+          <div
+            onClick={() => addToCart(item)}
+            className="btn-area absolute -bottom-20 group-hover/product:bottom-0 left-0 right-0 py-3 px-2 bg-[#121212] text-white"
+          >
+            Add to cart
           </div>
         </div>
         <div className="detail-area py-3">

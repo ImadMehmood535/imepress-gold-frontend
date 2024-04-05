@@ -8,16 +8,18 @@ import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import Searcharea from "./searchArea";
 import Link from "next/link";
+import useProductStore from "@/store/products";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
+  const { products , clearCart } = useProductStore();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  return (
+   return (
     <div className="header">
       <div className="container sm:max-w-[100%] ">
         <div className="top-bar bg-themeSecondry-0 flex flex-wrap items-center justify-center py-2 text-center sm:text-left">
@@ -91,9 +93,11 @@ const Header = () => {
                   </li>
                   <li className="relative">
                     <FiShoppingCart className="text-2xl" />{" "}
-                    <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
-                      1
-                    </div>
+                    {products?.length > 0 && (
+                      <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
+                        {products?.length}
+                      </div>
+                    )}
                   </li>
                   <li>
                     <FaRegHeart className="text-2xl" />

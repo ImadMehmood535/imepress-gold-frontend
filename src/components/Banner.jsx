@@ -37,6 +37,7 @@ const Banner = () => {
               <div className="basis-full md:basis-2/4 xl:px-10">
                 <Image
                   src={banner_img1}
+                  alt="banner_image"
                   width={500}
                   height={500}
                   className="w-full"
@@ -58,6 +59,7 @@ const Banner = () => {
               <div className="basis-full md:basis-2/4 xl:px-10">
                 <Image
                   src={banner_img1}
+                  alt="baenner"
                   width={500}
                   height={500}
                   className="w-full"

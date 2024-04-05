@@ -32,7 +32,7 @@ const Saletimer = () => {
       <div className="w-full overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="w-full">
-            <Image src={dealimg1} width={800} height={450} className="w-full h-full" />
+            <Image alt="image" src={dealimg1} width={800} height={450} className="w-full h-full" />
           </div>
           <div className="w-full bg-themePrimary-0 flex flex-col justify-center py-2 px-2">
             <div className="flex flex-wrap flex-col items-center">

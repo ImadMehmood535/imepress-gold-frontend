@@ -14,7 +14,9 @@ const useProductStore = create((set) => {
 
     addToCart: (product) =>
       set((state) => {
-        const updatedProducts = [...state.products, product];
+        const updatedProduct = { ...product, quantity: 1 };
+
+        const updatedProducts = [...state.products, updatedProduct];
         localStorage.setItem("products", JSON.stringify(updatedProducts));
         return { products: updatedProducts };
       }),
@@ -45,9 +47,8 @@ const useProductStore = create((set) => {
       set({ products: [] });
     },
 
-    getTotalPrice: () =>
-      state.products.reduce((total, product) => total + product.price, 0),
-  };
+ 
+};
 });
 
 export default useProductStore;

@@ -1,6 +1,6 @@
 import { Header_logo } from "@/assets";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
@@ -9,17 +9,27 @@ import { FiUser } from "react-icons/fi";
 import Searcharea from "./searchArea";
 import Link from "next/link";
 import useProductStore from "@/store/products";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
   const { products , clearCart } = useProductStore();
+  const [cardLength, setCardLength] = useState(0);
+  const router = useRouter();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-   return (
+  useEffect(() => {
+    setTimeout(() => {
+      setCardLength(products?.length);
+    });
+
+   }, [products]);
+
+  return (
     <div className="header">
       <div className="container sm:max-w-[100%] ">
         <div className="top-bar bg-themeSecondry-0 flex flex-wrap items-center justify-center py-2 text-center sm:text-left">
@@ -91,14 +101,19 @@ const Header = () => {
                       </button>
                     </div>{" "}
                   </li>
+
                   <li className="relative">
-                    <FiShoppingCart className="text-2xl" />{" "}
-                    {products?.length > 0 && (
+                    <FiShoppingCart
+                      onClick={() => router.push("/cart")}
+                      className="text-2xl cursor-pointer"
+                    />
+                    {cardLength > 0 && (
                       <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
-                        {products?.length}
+                        {cardLength}
                       </div>
                     )}
                   </li>
+
                   <li>
                     <FaRegHeart className="text-2xl" />
                   </li>

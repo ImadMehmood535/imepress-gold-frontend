@@ -125,16 +125,20 @@ const CartDetails = () => {
             </h1>
             <div className="flex justify-between mt-10 mb-5">
               <span className="font-semibold text-sm uppercase">Items 3</span>
-              <span className="font-semibold text-sm">590$</span>
+              <span className="font-semibold text-sm">Free</span>
             </div>
-            <div>
+            <div className="flex justify-between mt-10 mb-5">
+              <span className="font-semibold text-sm uppercase">Discounts</span>
+              <span className="font-semibold text-sm">-$44,99</span>
+            </div>
+            {/* <div>
               <label className="font-medium inline-block mb-3 text-sm uppercase">
                 Shipping
               </label>
               <select className="block p-2 text-gray-600 w-full text-sm">
                 <option>Standard shipping - $10.00</option>
               </select>
-            </div>
+            </div> 
             <div className="py-10">
               <label
                 for="promo"
@@ -151,13 +155,13 @@ const CartDetails = () => {
             </div>
             <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">
               Apply
-            </button>
+            </button>*/}
             <div className="border-t mt-8">
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
-                <span>Total cost</span>
-                <span>$600</span>
+                <span>Subtotal</span>
+                <span>$186,99</span>
               </div>
-              <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+              <button className="bg-[#121212] py-3 px-6 rounded-lg font-semibold hover:bg-[#121212] py-3 text-sm text-white uppercase w-full">
                 Checkout
               </button>
             </div>

@@ -53,7 +53,7 @@ const DailySale = ({ data, title, exp }) => {
                 key={index}
                 className="max-h-[600px] relative group/product transition cursor-pointer"
               >
-                <ProductCart item={item} key={index} />
+                <ProductCart item={item}/>
               </SwiperSlide>
             ))}
           </Swiper>

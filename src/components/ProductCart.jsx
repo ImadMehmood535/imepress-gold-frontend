@@ -5,10 +5,10 @@ import { FaExchangeAlt } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductCart = ({ item, key }) => {
+const ProductCart = ({ item }) => {
   return (
     <div className="ProductCart">
-      <div className="item group/product" key={key}>
+      <div className="item group/product">
         <div className="image-area relative border py-14 px-10 text-center min-h-[450px] overflow-hidden flex items-center">
           <div className="tag-wrapper absolute top-2 left-2 ">
             <div className="bg-themeSecondry-0 uppercase rounded-md py-1 px-4 text-white font-bold mb-2">

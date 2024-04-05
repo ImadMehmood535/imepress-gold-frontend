@@ -1,192 +1,125 @@
 import { Header_logo } from "@/assets";
 import Image from "next/image";
 import React from "react";
+import { TiArrowBack } from "react-icons/ti";
+import { GrUpdate } from "react-icons/gr";
 
 const CartDetails = () => {
   return (
     <div className="CartDetails pt-24 py-12">
       <div className="container w-full px-5 xl:w-[80%] mx-auto ">
-        <div className="flex shadow-md my-10">
-          <div className="w-3/4 bg-white px-10 py-10">
-            {/* <div className="flex justify-between border-b pb-8">
-              <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-              <h2 className="font-semibold text-2xl">3 Items</h2>
-            </div> */}
-            <div className="flex mb-5 mb-5 border-b-1">
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
-                Product Details
-              </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">
-                Quantity
-              </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">
-                Price
-              </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">
-                Total
+        <div className="flex  gap-6">
+          <div className="w-2/3 bg-white ">
+            <div className="flex mb-5 pb-5 border-b-1">
+              <h3 className="font-bold text-xl capitalize w-2/5">Products</h3>
+              <h3 className="font-bold text-xl capitalize w-2/5">Price</h3>
+              <h3 className="font-bold text-xl capitalize w-2/5">Quantity</h3>
+              <h3 className="font-bold text-xl capitalize w-2/5">
+                Total Price
               </h3>
             </div>
-            <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-              <div className="flex w-2/5">
-                <div className="w-20">
-                  <Image
-                    className="h-24"
-                    src=""
-                    alt=""
-                  />
+
+            <div className=" hover:bg-gray-100 py-4 px-4 border-b-1 -mx-1 ">
+              <div className="flex flex-wrap items-center">
+                <div className="flex w-2/5">
+                  <div className="w-36">
+                    <Image
+                      src={Header_logo}
+                      width={130}
+                      height={100}
+                      alt="Header_logo"
+                      className="min-h-[100px]"
+                    />
+                  </div>
+                  <div className="flex flex-col  ml-4 flex-grow">
+                    <span className="font-bold text-base mb-3">
+                      Black Canvas Stripe Sole Trainer
+                    </span>
+                    <span className="text-[#A0A0A0] font-medium text-sm mb-3">
+                      Green, XS, Cotton
+                    </span>
+                    <a
+                      href="#"
+                      className="font-semibold text-[#121212] hover:text-red-500  text-xs"
+                    >
+                      Remove
+                    </a>
+                  </div>
                 </div>
-                <div className="flex flex-col justify-between ml-4 flex-grow">
-                  <span className="font-bold text-sm">Iphone 6S</span>
-                  <span className="text-red-500 text-xs">Apple</span>
-                  <a
-                    href="#"
-                    className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+
+                <span className="text-center w-1/5 font-medium text-base text-[#616161]">
+                  $<span className="price">40.00</span>
+                </span>
+                {/* <div className="flex justify-center w-1/5">
+                  <svg
+                    className="fill-current text-gray-600 w-3"
+                    viewBox="0 0 448 512"
                   >
-                    Remove
-                  </a>
-                </div>
-              </div>
-              <div className="flex justify-center w-1/5">
-                <svg
-                  className="fill-current text-gray-600 w-3"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
+                    <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                  </svg>
 
-                <input
-                  className="mx-2 border text-center w-8"
-                  type="text"
-                  value="1"
-                />
-
-                <svg
-                  className="fill-current text-gray-600 w-3"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-              </div>
-              <span className="text-center w-1/5 font-semibold text-sm">
-                $400.00
-              </span>
-              <span className="text-center w-1/5 font-semibold text-sm">
-                $400.00
-              </span>
-            </div>
-
-            <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-              <div className="flex w-2/5">
-                <div className="w-20">
-                  <Image
-                    className="h-24"
-                    src={Header_logo}
-                    alt=""
+                  <input
+                    className="mx-2 border text-center w-8"
+                    type="text"
+                    value="1"
                   />
-                </div>
-                <div className="flex flex-col justify-between ml-4 flex-grow">
-                  <span className="font-bold text-sm">Xiaomi Mi 20000mAh</span>
-                  <span className="text-red-500 text-xs">Xiaomi</span>
-                  <a
-                    href="#"
-                    className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+
+                  <svg
+                    className="fill-current text-gray-600 w-3"
+                    viewBox="0 0 448 512"
                   >
-                    Remove
-                  </a>
+                    <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                  </svg>
+                </div> */}
+                <div className=" w-full md:w-1/5 mt-2  ">
+                  <div className="flex items-center justify-center rounded-xl overflow-hidden">
+                    <button
+                      className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
+                      // onClick={() =>
+                      //   updateQuantity(index, quantities[index] - 1)
+                      // }
+                    >
+                      −
+                    </button>
+                    <div className="flex h-8 w-11 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
+                      {/* {quantities[index]} */} 1
+                    </div>
+                    <button
+                      className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 bg-gray-300 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
+                      // onClick={() =>
+                      //   updateQuantity(index, quantities[index] + 1)
+                      // }
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
+                <span className="text-center w-1/5 font-bold text-base text-[#121212]">
+                  $<span className="price">40.00</span>
+                </span>
               </div>
-              <div className="flex justify-center w-1/5">
-                <svg
-                  className="fill-current text-gray-600 w-3"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-
-                <input
-                  className="mx-2 border text-center w-8"
-                  type="text"
-                  value="1"
-                />
-
-                <svg
-                  className="fill-current text-gray-600 w-3"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-              </div>
-              <span className="text-center w-1/5 font-semibold text-sm">
-                $40.00
-              </span>
-              <span className="text-center w-1/5 font-semibold text-sm">
-                $40.00
-              </span>
             </div>
 
-            <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-              <div className="flex w-2/5">
-                <div className="w-20">
-                  <Image
-                    className="h-24"
-                    src=""
-                    alt=""
-                  />
-                </div>
-                <div className="flex flex-col justify-between ml-4 flex-grow">
-                  <span className="font-bold text-sm">Airpods</span>
-                  <span className="text-red-500 text-xs">Apple</span>
-                  <a
-                    href="#"
-                    className="font-semibold hover:text-red-500 text-gray-500 text-xs"
-                  >
-                    Remove
-                  </a>
-                </div>
-              </div>
-              <div className="flex justify-center w-1/5">
-                <svg
-                  className="fill-current text-gray-600 w-3"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-                <input
-                  className="mx-2 border text-center w-8"
-                  type="text"
-                  value="1"
-                />
-
-                <svg
-                  className="fill-current text-gray-600 w-3"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-              </div>
-              <span className="text-center w-1/5 font-semibold text-sm">
-                $150.00
-              </span>
-              <span className="text-center w-1/5 font-semibold text-sm">
-                $150.00
-              </span>
-            </div>
-
-            <a
-              href="#"
-              className="flex font-semibold text-indigo-600 text-sm mt-10"
-            >
-              <svg
-                className="fill-current mr-2 text-indigo-600 w-4"
-                viewBox="0 0 448 512"
+            <div className=" flex flex-wrap items-center justify-between mt-5">
+              <a
+                href="#"
+                className="flex font-semibold text-sm bg-[#121212] text-white py-3 px-6 rounded-lg items-center gap-2"
               >
-                <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
-              </svg>
-              Continue Shopping
-            </a>
-          </div>
+                <TiArrowBack className="text-lg"/>
+                Back To Shop
+              </a>
 
-          {/* <div id="summary" className="w-1/4 px-8 py-10">
+              <a
+                href="#"
+                className="flex font-semibold text-sm bg-[#white] text-black py-3 px-6 rounded-lg items-center gap-2"
+              >
+                <GrUpdate />
+                Update Cart
+              </a>
+            </div>
+          </div>
+                  {/* summary */}
+          <div id="summary" className="w-2/6 px-4 py-4 shadow rounded-xl">
             <h1 className="font-semibold text-2xl border-b pb-8">
               Order Summary
             </h1>
@@ -228,7 +161,7 @@ const CartDetails = () => {
                 Checkout
               </button>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

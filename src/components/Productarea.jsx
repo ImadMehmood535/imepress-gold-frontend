@@ -33,7 +33,7 @@ const Productarea = ({ data, option, isChecked, sorting }) => {
           }`}
         >
           {sortedData?.map((item, index) => (
-            <ProductCart item={item} />
+            <ProductCart item={item} key={index} />
           ))}
         </div>
       </div>

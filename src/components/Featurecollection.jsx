@@ -22,6 +22,7 @@ const Featurecollection = () => {
                   <Image
                     src={item.image}
                     width={500}
+                    alt="image"
                     height={250}
                     className="w-full"
                   />

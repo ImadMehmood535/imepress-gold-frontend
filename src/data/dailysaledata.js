@@ -14,7 +14,7 @@ const dailysaledata = [
    
   },
   {
-    id : 1,
+    id : 2,
     image: sale_img1,
     title: "Slouchy trousers with darts",
     reg_price: 98.00,
@@ -26,7 +26,7 @@ const dailysaledata = [
     
   },
   {
-    id : 1,
+    id : 3,
     image: sale_img1,
     title: "Faux-leather shirt dress",
     reg_price: 98.00,
@@ -38,9 +38,9 @@ const dailysaledata = [
     
   },
   {
-    id : 1,
+    id : 4,
     image: sale_img1,
-    title: "Wool double-breasted coat",
+    title: "Wool1 double-breasted coat",
     reg_price: 98.00,
     
     tags : { 
@@ -49,9 +49,9 @@ const dailysaledata = [
     }
   },
   {
-    id : 1,
+    id : 5,
     image: sale_img1,
-    title: "Wool double-breasted coat",
+    title: "Wool2 double-breasted coat",
     reg_price: 98.00,
     
     tags : { 

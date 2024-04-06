@@ -4,16 +4,14 @@ import InnerpageHeader from "@/components/InnerpageHeader";
 import { cartdata } from "@/data/cartdata";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const Index = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [productItems, setProductItems] = useState(cartdata);
 
-  // Initialize quantity state for each product
-  const initialQuantities = productItems.map(() => 1);
+   const initialQuantities = productItems.map(() => 1);
   const [quantities, setQuantities] = useState(initialQuantities);
 
-  // Function to update quantity
-  const updateQuantity = (index, newQuantity) => {
+   const updateQuantity = (index, newQuantity) => {
     if (newQuantity <= 0) {
       return;
     }
@@ -52,4 +50,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Index;

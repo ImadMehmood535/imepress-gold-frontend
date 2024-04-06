@@ -15,14 +15,14 @@ const SaleComponent = () => {
   return (
     <div className="sale">
       <Salebanner />
-      <div className="shop-area py-24">
+      <div className="shop-area py-24 container w-full px-5 xl:w-[80%] mx-auto">
         <Filterbar
           setOption={setOption}
           option={option}
           setIsChecked={setIsChecked}
           isChecked={isChecked}
-          sorting = {sorting}
-          setSorting = {setSorting}
+          sorting={sorting}
+          setSorting={setSorting}
         />
         <Productarea
           data={dailysaledata}
@@ -31,7 +31,7 @@ const SaleComponent = () => {
           sorting={sorting}
         />
       </div>
-      <Quickview data={featurecollection}/>
+      <Quickview data={featurecollection} />
       <Newsletter />
     </div>
   );

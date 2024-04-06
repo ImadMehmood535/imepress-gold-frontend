@@ -112,7 +112,16 @@
 /* .ProductCart .item .image-area img {
   transition: 0.3s;
 } */
+details summary .svg-icon {
+  transform: rotate(90deg);
+}
 
+details[open] summary .svg-icon {
+  transform: rotate(-90deg);
+}
+.svg-icon {
+  transition: all 0.3s;
+}
 @media all and (max-width: 1024px) {
   .counter-list li {
     padding: 10px;

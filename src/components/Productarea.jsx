@@ -22,7 +22,7 @@ const Productarea = ({ data, option, isChecked, sorting }) => {
 
   return (
     <div className="Productarea">
-      <div className="container w-full px-5 xl:w-[80%] mx-auto">
+      <div className=" w-full">
         <div
           className={`product_area mt-8 grid gap-4 mb-2 ${
             option === 3

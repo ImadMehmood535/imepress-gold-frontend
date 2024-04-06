@@ -27,9 +27,9 @@ const Filterbar = ({ setOption, option, setIsChecked, isChecked, sorting, setSor
   };
   return (
     <div className="Filterbar">
-      <div className="container w-full px-5 xl:w-[80%] mx-auto">
-        <div className="flex flex-wrap items-center">
-          <div className="w-5/6 flex flex-wrap gap-3 flex-row">
+      <div className=" w-full ">
+        <div className="flex flex-wrap items-center justify-between">
+          <div className=" flex flex-wrap gap-3 flex-row">
             <button
               id="filter"
               className="text-black font-medium text-lg px-5 py-2.5 text-center inline-flex items-center"
@@ -101,7 +101,7 @@ const Filterbar = ({ setOption, option, setIsChecked, isChecked, sorting, setSor
               </Checkbox>
             </div>
           </div>
-          <div className="w-2/12">
+          <div className="">
             <Dropdown>
               <DropdownTrigger>
                 <Button

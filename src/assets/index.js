@@ -1,4 +1,4 @@
-import Header_logo from "./images/Header_logo.png";
+import Header_logo from "./images/header_logo.png";
 import Footer_Logo from "./images/Footer_Logo.svg";
 import payment_methods from "./images/payment_methods.png";
 import banner_img1 from "./images/banner_img1.png";

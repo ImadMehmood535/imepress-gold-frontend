@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
-import Searcharea from "./searchArea";
+import Searcharea from "./SearchArea";
 import Link from "next/link";
 import useProductStore from "@/store/products";
 import { useRouter } from "next/navigation";

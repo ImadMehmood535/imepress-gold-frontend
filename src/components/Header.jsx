@@ -6,14 +6,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
-import Searcharea from "./searchArea";
-import Link from "next/link";
+ import Link from "next/link";
 import useProductStore from "@/store/products";
 import { useRouter } from "next/navigation";
 import useUserStore from "@/store/user";
 import { AiOutlineLogin } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { deleteCookie } from "@/hooks/useCookies";
+import Searcharea from "./Searcharea";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

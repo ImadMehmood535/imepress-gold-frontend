@@ -6,6 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Urbanist({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <NextUIProvider>
+          <NextTopLoader />
           <ToastContainer />
           <Header />
           {children}

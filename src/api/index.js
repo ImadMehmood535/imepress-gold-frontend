@@ -91,7 +91,6 @@ API.getAllBlogs = () => {
   return API.get("blog");
 };
 
-
 API.getSingleBlog = (slug) => {
   return API.get(`blog/${slug}`);
 };
@@ -116,6 +115,13 @@ API.getAllUsers = () => {
 
 API.updateUserByAdmin = (data) => {
   return API.patch(`user`, data);
+};
+
+API.registerUser = (data) => {
+  return API.post("user", data);
+};
+API.logInUser = (data) => {
+  return API.post("user/login", data);
 };
 
 //order

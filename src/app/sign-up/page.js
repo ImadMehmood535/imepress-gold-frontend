@@ -1,5 +1,5 @@
 import InnerpageHeader from "@/components/InnerpageHeader";
-import Signupform from "@/components/signupform";
+import Signupform from "@/components/Signupform";
 import React from "react";
 
 const page = () => {

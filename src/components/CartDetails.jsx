@@ -139,10 +139,10 @@ const CartDetails = ({ cartdata }) => {
               </Link>
             </div>
           </div>
-           
+
           <div
             id="summary"
-            className=" my-3 w-full md:w-3/12 px-4 py-4 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.12)]  rounded-xl"
+            className=" my-3 w-full md:w-3/12 px-4 py-4 shadow-lg  rounded-xl"
           >
             <h1 className="font-semibold text-2xl border-b pb-8">
               Order Summary
@@ -157,7 +157,7 @@ const CartDetails = ({ cartdata }) => {
                 <span>Subtotal</span>
                 <span>${totalPrice.toFixed(2)}</span>
               </div>
-              
+
               <button className="bg-[#121212] py-3 px-6 rounded-lg font-semibold hover:bg-[#164A8C] transition text-sm mb-3 text-white uppercase w-full border">
                 Checkout
               </button>

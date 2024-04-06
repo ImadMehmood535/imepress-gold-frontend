@@ -24,6 +24,8 @@ import Grid_4 from "./images/Grid_4.svg";
 import Grid_5 from "./images/Grid_5.svg";
 import Grid_List from "./images/Grid_List.svg";
 import popupimage from "./images/popupimage.png";
+import emptyCart from "./images/empty-cart.png";
+
 
 export {
   Header_logo,
@@ -51,5 +53,6 @@ export {
   Grid_4,
   Grid_5,
   Grid_List,
-  popupimage
+  popupimage,
+  emptyCart
 };

@@ -4,14 +4,17 @@ import { errorToast } from "@/hooks/useToast";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
+import Loader from "./Loader";
 
 const BlogSlug = ({ slug }) => {
   const [blog, setBlog] = useState(null);
+  const [fetching, setFetching] = useState(true);
 
   const getData = async () => {
     try {
       const response = await API.getSingleBlog(slug);
       setBlog(response?.data?.data);
+      setFetching(false);
     } catch (error) {
       errorToast(error?.response?.data?.message, "Can not fetch blog");
     }
@@ -21,7 +24,9 @@ const BlogSlug = ({ slug }) => {
     getData();
   }, []);
 
-  return (
+  return fetching ? (
+    <Loader />
+  ) : (
     <div className="myContainer py-12 flex flex-col gap-8">
       <Image
         src={blog?.imageUrl}

@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import { FaExchangeAlt } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import useProductStore from "@/store/products";
+import CardModal from "./CartModal";
 
 const ProductCart = ({ item }) => {
   const { addToCart } = useProductStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="ProductCart ">
@@ -44,11 +51,14 @@ const ProductCart = ({ item }) => {
             className="w-full z-10 "
           />
           <div
-            onClick={() => addToCart(item)}
-            className="btn-area absolute -bottom-20 group-hover/product:bottom-0 left-0 right-0 py-3 px-2 bg-[#121212] text-white"
+            onClick={() => handleAddToCart(item)}
+            className="btn-area hover:bg-themePrimary-0 cursor-pointer absolute -bottom-20 group-hover/product:bottom-0 left-0 right-0 py-3 px-2 bg-[#121212] text-white"
           >
             Add to cart
           </div>
+          {isModalOpen && (
+            <CardModal   setIsModalOpen={setIsModalOpen} />
+          )}
         </div>
         <div className="detail-area py-3">
           <h4 className="font-bold text-[#121212] text-base capitalize">

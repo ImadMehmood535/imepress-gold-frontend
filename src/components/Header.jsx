@@ -10,24 +10,37 @@ import Searcharea from "./searchArea";
 import Link from "next/link";
 import useProductStore from "@/store/products";
 import { useRouter } from "next/navigation";
+import useUserStore from "@/store/user";
+import { AiOutlineLogin } from "react-icons/ai";
+import { toast } from "react-toastify";
+import { deleteCookie } from "@/hooks/useCookies";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState(null);
-  const { products , clearCart } = useProductStore();
+  const { products, clearCart } = useProductStore();
   const [cardLength, setCardLength] = useState(0);
+  const [authenticated, setAuthenticated] = useState(false);
+  const { user, logoutUser } = useUserStore();
+
   const router = useRouter();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleLogout = () => {
+    logoutUser();
+    toast.success("Successfully logout");
+    deleteCookie("token");
+    router.push("/");
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setCardLength(products?.length);
+      setAuthenticated(user?.authorized);
     });
-
-   }, [products]);
+  }, [products, user]);
 
   return (
     <div className="header">
@@ -117,9 +130,21 @@ const Header = () => {
                   <li>
                     <FaRegHeart className="text-2xl" />
                   </li>
-                  <li>
-                    <FiUser className="text-2xl" />
-                  </li>
+                  {authenticated && (
+                    <li>
+                      <AiOutlineLogin
+                        onClick={handleLogout}
+                        className=" cursor-pointer text-2xl"
+                      />
+                    </li>
+                  )}
+                  {!authenticated && (
+                    <li>
+                      <Link href={"log-in"}>
+                        <FiUser className=" cursor-pointer text-2xl" />
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
@@ -133,48 +158,28 @@ const Header = () => {
               } font-medium lg:max-w-[500px] max-w-[300px] text-center pt-20 w-full lg:space-x-4 lg:space-y-0 space-y-4 lg:justify-end items-center xl:justify-start lg:items-center lg:static  top-0 right-0 text-black md:text-black   lg:bg-transparent `}
             >
               <li className="max-w-[300px] w-full">
-                <Link
-                  href="/"
-                  className="text-white"
-                  // onSetActive={() => setActiveLink("/")}
-                >
+                <Link href="/" className="text-white">
                   Home
                 </Link>
               </li>
 
               <li className="max-w-[300px] w-full">
-                <Link
-                  href="/sale"
-                  className="text-white"
-                  // onSetActive={() => setActiveLink("features")}
-                >
+                <Link href="/sale" className="text-white">
                   Sale
                 </Link>
               </li>
               <li className="max-w-[300px] w-full relative group">
-                <Link
-                  href="/"
-                  className="text-white"
-                  // onSetActive={() => setActiveLink("pricing")}
-                >
+                <Link href="/" className="text-white">
                   Shop
                 </Link>
               </li>
               <li className="max-w-[300px] w-full">
-                <Link
-                  href="/"
-                  className="text-white"
-                  // onSetActive={() => setActiveLink("pricing")}
-                >
+                <Link href="/" className="text-white">
                   Category
                 </Link>
               </li>
               <li className="max-w-[300px] w-full">
-                <Link
-                  href="/blogs"
-                  className="text-white"
-                  // onSetActive={() => setActiveLink("pricing")}
-                >
+                <Link href="/blogs" className="text-white">
                   Blog
                 </Link>
               </li>

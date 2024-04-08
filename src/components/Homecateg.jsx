@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Keyboard, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { cate1 } from "@/assets";
 import { FaArrowRight } from "react-icons/fa";
-import { homeCategories } from "@/data/categoriesData";
 
-const Homecateg = () => {
+const Homecateg = ({ data }) => {
+
+  
   return (
     <div className="cate-slider py-4 px-4 pb-24">
       <div className="w-full  overflow-hidden">
@@ -40,14 +40,14 @@ const Homecateg = () => {
           modules={[Navigation]}
           className="cate-slider"
         >
-          {homeCategories.map((category, index) => (
+          {data?.map((category, index) => (
             <SwiperSlide
               key={index}
               className="max-h-[450px] relative group/item transition-width"
             >
               <div className="image-area">
                 <Image
-                  src={category.image}
+                  src={category?.imageUrl}
                   width={500}
                   alt="image"
                   height={500}
@@ -60,9 +60,9 @@ const Homecateg = () => {
                   className=" bg-white py-2 px-2   w-auto text-center group-hover/item:w-[200px]    flex flex-wrap gap-3 items-center justify-between"
                 >
                   <div>
-                    {category.name}
+                    {category?.name}
                     <span className="text-[#A0A0A0] text-sm">
-                      ({category.qtn})
+                      ({category?.subCategoriesQuanitity})
                     </span>
                   </div>
                   <FaArrowRight className="" />

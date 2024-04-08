@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
- import Link from "next/link";
+import Link from "next/link";
 import useProductStore from "@/store/products";
 import { useRouter } from "next/navigation";
 import useUserStore from "@/store/user";
@@ -14,6 +14,8 @@ import { AiOutlineLogin } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { deleteCookie } from "@/hooks/useCookies";
 import Searcharea from "./Searcharea";
+import { IoMenu } from "react-icons/io5";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,45 +74,23 @@ const Header = () => {
               <div className="hidden md:block md:basis-1/2">
                 <Searcharea />
               </div>
-              <div className="basis-2/4 md:basis-2/6 text-right">
-                <ul className="text-right flex flex-wrap gap-3 flex-row-reverse items-center text-white">
+              <div className="basis-2/4 md:basis-2/6 text-right ">
+                {/* <ul
+                  className={`lg:flex lg:flex-row flex-col lg:h-full h-[100vh] lg:py-2 pt-24 items-start ${
+                    isMenuOpen ? "flex" : "hidden"
+                  }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-black md:text-black bg-white lg:bg-webGray-0`}
+                ></ul> */}
+                <ul
+                  className={`text-right flex flex-wrap gap-3 flex-row-reverse items-center text-white ${ isMenuOpen ? "flex" : "hidden"
+            }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-black md:text-black bg-white lg:bg-webGray-0`}
+                >
                   <li>
                     <div className="lg:hidden lg:static   right-2 z-50">
                       <button
                         onClick={handleMenuToggle}
                         className="text-white focus:outline-none"
                       >
-                        {isMenuOpen ? (
-                          <svg
-                            className="w-8 h-8"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="black"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M6 18L18 6M6 6l12 12"
-                            />
-                          </svg>
-                        ) : (
-                          <svg
-                            className="w-8 h-8"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="black"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M4 6h16M4 12h16m-7 6h7"
-                            />
-                          </svg>
-                        )}
+                        {isMenuOpen ? <IoMenu /> : <IoCloseSharp />}
                       </button>
                     </div>{" "}
                   </li>
@@ -151,7 +131,7 @@ const Header = () => {
 
             <div className="hidden lg:block mb-3 cursor-pointer "></div>
           </div>
-          <div className={`    container relative  w-full  mx-auto `}>
+          <div className={` container relative  w-full  mx-auto `}>
             <ul
               className={`lg:flex lg:flex-row flex-col lg:h-full h-[100vh] lg:pt-0 pt-16  items-start text-white${
                 isMenuOpen ? "flex" : "hidden"

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalContent,
-  ModalHeader,
+
   ModalBody,
-  ModalFooter,
+
   Button,
   useDisclosure,
 } from "@nextui-org/react";
@@ -12,7 +12,20 @@ import Image from "next/image";
 import { feature_item1, popupimage } from "@/assets";
 import { FaStar } from "react-icons/fa";
 
+import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa6";
+
 const Quickview = () => {
+  const [quantity, setQuantity] = useState(0);
+
+  const decrementQuantity = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -86,7 +99,7 @@ const Quickview = () => {
                       </p>
                     </div>
                     {/* variations area */}
-                    <div className="variation-title mb-4">
+                    {/* <div className="variation-title mb-4">
                       <div className="flex flex-wrap gap-3 mb-3">
                         <h6 className="font-semibold text-xl">Size :</h6>
                         <span className="font-normal text-xl">M</span>
@@ -105,9 +118,9 @@ const Quickview = () => {
                           XS
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                     {/* variations area */}
-                    <div className="variation-title mb-4">
+                    {/* <div className="variation-title mb-4">
                       <div className="flex flex-wrap gap-3 mb-3">
                         <h6 className="font-semibold text-xl">Colors: :</h6>
                         <span className="font-normal text-xl">Blue</span>
@@ -126,11 +139,11 @@ const Quickview = () => {
                           className={`border w-12 h-12 flex items-center justify-center font-bold bg-slate-600 rounded hover:bg-[#121212] transition hover:text-white`}
                         ></li>
                       </ul>
-                    </div>
+                    </div> */}
                     {/* quantity area */}
                     <div className="variation-title mb-4">
                       <h6 className="font-semibold text-xl mb-3">Quantity</h6>
-                      <div className="flex flex-wrap gap-3 mb-3">
+                      {/* <div className="flex flex-wrap gap-3 mb-3">
                         <div className="flex items-center justify-center rounded-xl overflow-hidden">
                           <button
                             className="flex h-11 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500  active:ring-gray-500"
@@ -151,6 +164,45 @@ const Quickview = () => {
                         <button className=" font-semibold transition text-sm bg-[#121212] text-white rounded hover:text-white uppercase py-3 px-9">
                           Add to cart
                         </button>
+                      </div> */}
+                      <div className="product-actions flex flex-wrap gap-3  py-9 sm:py-2">
+                        <div
+                          className=" rounded-xl qty-selector flex w-full sm:w-auto"
+                          data-hs-input-number=""
+                        >
+                          <div className="flex items-center gap-x-1.5 border bg-white  border-gray-200">
+                            <button
+                              type="button"
+                              className="h-full w-10 group/button inline-flex justify-center items-center gap-x-2 text-sm font-medium border border-gray-200 bg-white hover:bg-[#121212] rounded-none text-gray-800 shadow-sm"
+                              onClick={decrementQuantity}
+                            >
+                              <FaMinus className="group-hover/button:fill-white group-hover/button:text-white" />
+                            </button>
+                            <input
+                              className="w-16 py-2 text-center bg-transparent border-0"
+                              type="text"
+                              value={quantity}
+                              readOnly
+                            />
+                            <button
+                              type="button"
+                              className="h-full w-10 group/button inline-flex justify-center items-center gap-x-2 text-sm font-medium border border-gray-200 bg-white hover:bg-[#121212] rounded-none text-gray-800 shadow-sm"
+                              onClick={incrementQuantity}
+                            >
+                              <FaPlus className="group-hover/button:fill-white group-hover/button:text-white" />
+                            </button>
+                          </div>
+                        </div>
+                        <button className="add-to-cart font-semibold transition text-sm bg-[#121212] w-auto md:w-72 text-white rounded hover:text-white uppercase py-3 px-9">
+                          Add to cart
+                        </button>
+                        {/* <div className="wishlist">
+                          <Tooltip content="Wishlist">
+                            <Button className="rounded-lg px-0 bg-white border py-4 h-full w-10 group/button inline-flex justify-center items-center gap-x-2 text-sm font-mediumborder border-gray-200 hover:bg-[#121212] shadow-sm">
+                              <FaRegHeart className="text-2xl group-hover/button:fill-white group-hover/button:text-white hover:bg-[#121212]" />
+                            </Button>
+                          </Tooltip>
+                        </div> */}
                       </div>
                     </div>
                   </div>

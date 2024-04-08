@@ -29,13 +29,13 @@ const Index = ({ params }) => {
         breadcrums={`${params.slug}`}
       />
 
-      <div className="container w-full py-14 px-5 xl:w-[80%] mx-auto grid grid-cols-2 gap-4">
-        <div className="image-area">
+      <div className="container w-full py-14 px-5 xl:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="image-area m-auto">
           <Image
             src={popupimage}
             width={550}
             alt="popupimage"
-            className="w-[80%]"
+            className="w-full md:w-[80%] "
           />
         </div>
         <div className="content-area">
@@ -79,12 +79,12 @@ const Index = ({ params }) => {
           <div className="divider md:py-10">
             <div className="border-t-1 border-[#E5E5E5]"></div>
           </div>
-          <div className="product-actions flex flex-wrap gap-3  py-2">
+          <div className="product-actions flex flex-wrap gap-3  py-9 sm:py-2">
             <div
-              className=" border bg-white  border-gray-200 rounded-xl qty-selector flex"
+              className=" rounded-xl qty-selector flex w-full sm:w-auto"
               data-hs-input-number=""
             >
-              <div className="flex items-center gap-x-1.5">
+              <div className="flex items-center gap-x-1.5 border bg-white  border-gray-200">
                 <button
                   type="button"
                   className="h-full w-10 group/button inline-flex justify-center items-center gap-x-2 text-sm font-medium border border-gray-200 bg-white hover:bg-[#121212] rounded-none text-gray-800 shadow-sm"
@@ -139,7 +139,7 @@ const Index = ({ params }) => {
               </li>
             </ul>
           </div>
-          <div className="divider md:py-10">
+          <div className="divider py-10">
             <div className="border-t-1 border-[#E5E5E5]"></div>
           </div>
           <div className="store-feature">

@@ -25,6 +25,7 @@ import Grid_5 from "./images/Grid_5.svg";
 import Grid_List from "./images/Grid_List.svg";
 import popupimage from "./images/popupimage.png";
 import emptyCart from "./images/empty-cart.png";
+import Delivery_Truck from "./images/Delivery-Truck.png";
 
 
 export {
@@ -54,5 +55,6 @@ export {
   Grid_5,
   Grid_List,
   popupimage,
-  emptyCart
+  emptyCart,
+  Delivery_Truck
 };

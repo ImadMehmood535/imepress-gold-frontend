@@ -8,23 +8,16 @@ import Instafeeds from "@/components/Instafeeds";
 import { dailysaledata } from "@/data/dailysaledata";
 import { topsaledata } from "@/data/topsaledata";
 import Newsletter from "@/components/Newsletter";
+import HomePage from "@/components/HomePage";
 
 export const metadata = {
-  title: "Home Page",
+  title: "Imepress Gold",
 };
 
 export default function Home() {
   return (
     <>
-      <Banner />
-      <Homecateg />
-      <DailySale data={dailysaledata} title="Daily Sale" exp="Top sale on this week"/>
-      <Featurecollection/>
-      <Saletimer/>
-      <Benefits/>
-      <DailySale data={topsaledata} title="Looks You’ll Love" exp="Top sale on this week"/>
-      <Instafeeds/>
-      <Newsletter/>
+      <HomePage />
     </>
   );
 }

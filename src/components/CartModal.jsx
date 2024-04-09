@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import { FaCircleCheck } from "react-icons/fa6";
 
-const CardModal = () => {
+const CardModal = ({ close }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   useEffect(() => {
@@ -33,7 +33,10 @@ const CardModal = () => {
               <ModalFooter>
                 <Button
                   className="bg-themePrimary-0 hover:bg-themeSecondry-0 text-white"
-                  onPress={onClose}
+                  onPress={() => {
+                    onClose();
+                    close;
+                  }}
                 >
                   Continue Shopping
                 </Button>

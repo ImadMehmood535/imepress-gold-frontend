@@ -7,7 +7,7 @@ import useProductStore from "@/store/products";
 import Image from "next/image";
 import Link from "next/link";
 
-const CartDetails = ({ cartdata }) => {
+const CartDetails = () => {
   const { products, removeFromCart, updateProduct } = useProductStore();
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -31,7 +31,7 @@ const CartDetails = ({ cartdata }) => {
   useEffect(() => {
     let totalPrice = 0;
     products.forEach((item) => {
-      totalPrice += item.sale_price * item.quantity;
+      totalPrice += item.price * item.quantity;
     });
     setTotalPrice(totalPrice);
   }, [products]);
@@ -61,18 +61,18 @@ const CartDetails = ({ cartdata }) => {
               >
                 <div className="flex flex-wrap flex-col sm:flex-row items-start sm:items-center">
                   <div className="flex w-full sm:w-2/5">
-                    <div className="w-36">
+                    <Link href={`/shop/${item?.slug}`} className="w-36">
                       <Image
-                        src={item?.image}
+                        src={item?.imageUrl}
                         alt="Product Image"
                         width={100}
                         height={100}
                         className="min-h-[100px]"
                       />
-                    </div>
+                    </Link>
                     <div className="flex flex-col  ml-4 flex-grow">
                       <span className="font-bold text-base mb-3">
-                        {item?.title}
+                        {item?.name}
                       </span>
                       <span className="text-[#A0A0A0] font-medium text-sm mb-3">
                         {item?.brand}
@@ -91,7 +91,7 @@ const CartDetails = ({ cartdata }) => {
                       <b>Price</b>
                     </div>
                     <span className="text-center font-medium text-base text-[#616161]">
-                      <span className="price">${item?.sale_price}</span>
+                      <span className="price">${item?.price}</span>
                     </span>
                   </div>
 
@@ -121,7 +121,7 @@ const CartDetails = ({ cartdata }) => {
                     </div>
                     <h4 className="text-center font-bold text-base text-[#121212]">
                       <span className="price">
-                        ${(item.sale_price * item.quantity).toFixed(2)}
+                        ${(item.price * item.quantity).toFixed(2)}
                       </span>
                     </h4>
                   </div>

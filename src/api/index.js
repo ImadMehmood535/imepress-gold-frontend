@@ -55,7 +55,7 @@ API.updateBrand = (data, id) => {
 
 //Category
 
-API.getAllCategpries = () => {
+API.getAllCategories = () => {
   return API.get("category/all");
 };
 
@@ -146,6 +146,14 @@ API.addProduct = (data) => {
 
 API.updateProduct = (id, data) => {
   return API.patch(`product/${id}`, data);
+};
+
+API.getSingleProduct = (slug) => {
+  return API.get(`product/${slug}`);
+};
+
+API.getProductByCategoryID = (id) => {
+  return API.get(`product/by-category?categoryId=${id}`);
 };
 
 export { API };

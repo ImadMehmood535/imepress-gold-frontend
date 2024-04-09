@@ -53,7 +53,6 @@ const SaleComponent = () => {
           />
         )}
       </div>
-      <Quickview data={featurecollection} />
       <Newsletter />
     </div>
   );

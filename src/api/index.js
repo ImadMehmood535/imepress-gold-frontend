@@ -135,6 +135,11 @@ API.getOrders = () => {
 API.getProducts = () => {
   return API.get("product");
 };
+
+API.getProductsQueryParams = (type) => {
+  return API.get(`product/query?type=${type}`);
+};
+
 API.addProduct = (data) => {
   return API.post("product", data);
 };

@@ -3,17 +3,19 @@ import ProductCart from "./ProductCart";
 
 const Productarea = ({ data, option, isChecked, sorting }) => {
   const filteredData = isChecked
-    ? data.filter((item) => item?.sale_price)
+    ? data.filter((item) => item?.tags?.sale)
     : data;
+
+  console.log(data, "data");
 
   const sortedData = [...filteredData];
 
   switch (sorting) {
     case "a to z":
-      sortedData.sort((a, b) => (a.title > b.title ? 1 : -1));
+      sortedData.sort((a, b) => (a.name > b.name ? 1 : -1));
       break;
     case "z to a":
-      sortedData.sort((a, b) => (a.title < b.title ? 1 : -1));
+      sortedData.sort((a, b) => (a.name < b.name ? 1 : -1));
       break;
 
     default:

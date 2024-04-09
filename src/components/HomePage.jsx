@@ -16,6 +16,8 @@ import Loader from "./Loader";
 
 const HomePage = () => {
   const [homeCategData, setHomeCategData] = useState(null);
+  const [dailyData, setDailyData] = useState(null);
+  const [featuredData, setFeaturedData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const getData = async () => {
@@ -23,6 +25,10 @@ const HomePage = () => {
     try {
       response = await API.getCategorirs();
       setHomeCategData(response?.data?.data);
+      response = await API.getProductsQueryParams("isSale");
+      setDailyData(response?.data?.data);
+      response = await API.getProductsQueryParams("isFeatured");
+      setFeaturedData(response?.data.data);
       setLoading(false);
     } catch (error) {
       errorToast(error, "Can not fetch data");
@@ -44,7 +50,7 @@ const HomePage = () => {
         <>
           <Homecateg data={homeCategData} />
           <DailySale
-            data={dailysaledata}
+            data={dailyData}
             title="Daily Sale"
             exp="Top sale on this week"
           />
@@ -52,9 +58,9 @@ const HomePage = () => {
           <Saletimer />
           <Benefits />
           <DailySale
-            data={topsaledata}
+            data={featuredData}
             title="Looks You’ll Love"
-            exp="Top sale on this week"
+            exp="get your featured products"
           />
           <Instafeeds />
           <Newsletter />

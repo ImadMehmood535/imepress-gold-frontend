@@ -7,11 +7,29 @@ import { dailysaledata } from "@/data/dailysaledata";
 import React, { useState } from "react";
 import Quickview from "./Quickview";
 import { featurecollection } from "@/data/featurecollection";
+import { API } from "@/api";
+import { errorToast } from "@/hooks/useToast";
+import { useEffect } from "react";
 
 const SaleComponent = () => {
   const [option, setOption] = useState(4);
   const [isChecked, setIsChecked] = useState(false);
   const [sorting, setSorting] = useState("All");
+  const [salesData, setSalesData] = useState(null);
+
+  const getData = async () => {
+    try {
+      const response = await API.getProductsQueryParams("isSale");
+      setSalesData(response?.data?.data);
+    } catch (error) {
+      errorToast(error, "Can not fetch sale products");
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="sale">
       <Salebanner />
@@ -24,12 +42,15 @@ const SaleComponent = () => {
           sorting={sorting}
           setSorting={setSorting}
         />
-        <Productarea
-          data={dailysaledata}
-          option={option}
-          isChecked={isChecked}
-          sorting={sorting}
-        />
+
+        {salesData && (
+          <Productarea
+            data={salesData}
+            option={option}
+            isChecked={isChecked}
+            sorting={sorting}
+          />
+        )}
       </div>
       <Quickview data={featurecollection} />
       <Newsletter />

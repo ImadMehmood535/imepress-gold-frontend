@@ -97,8 +97,8 @@ const Header = () => {
           <div className="flex justify-start items-center w-full pt-4">
             <ul
               className={` lg:flex lg:flex-row flex-col lg:h-full h-[100vh] lg:py-2 pt-24 items-start  z-[998] ${
-                isMenuOpen ? "flex bg-white mob-menu-sidebar" : "hidden"
-              }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-black xl:text-white  lg:bg-webGray-0`}
+                isMenuOpen ? "flex bg-[#164A8C] mob-menu-sidebar" : "hidden"
+              }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-white  lg:bg-webGray-0`}
             >
               {menuItems?.map((item, index) => (
                 <li

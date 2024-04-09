@@ -9,8 +9,6 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
 const Homecateg = ({ data }) => {
-
-  
   return (
     <div className="cate-slider py-4 px-4 pb-24">
       <div className="w-full  overflow-hidden">
@@ -43,7 +41,7 @@ const Homecateg = ({ data }) => {
           {data?.map((category, index) => (
             <SwiperSlide
               key={index}
-              className="max-h-[450px] relative group/item transition-width"
+              className="max-h-[450px] relative transition-width"
             >
               <div className="image-area">
                 <Image
@@ -57,7 +55,7 @@ const Homecateg = ({ data }) => {
               <div className="btn-area absolute bottom-2 left-0 right-0 flex flex-wrap justify-center">
                 <Link
                   href="/"
-                  className=" bg-white py-2 px-2   w-auto text-center group-hover/item:w-[200px]    flex flex-wrap gap-3 items-center justify-between"
+                  className=" bg-white py-2 px-2  w-auto text-center flex flex-wrap gap-3 items-center justify-between"
                 >
                   <div>
                     {category?.name}

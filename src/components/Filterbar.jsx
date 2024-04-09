@@ -44,14 +44,14 @@ const Filterbar = ({
   };
   return (
     <div className="Filterbar">
-      <div
-        className={`filter-side-bar  w-full sm:w-1/5  left-0 top-0 bg-white p-4 h-[100vh] fixed z-[998] transition-left ${
-          isfilterbar ? "-left-96 hidden" : "left-0 block"
-        } `}
-      >
-        <IoCloseSharp className="text-2xl  text-black z-[999]" onClick={handleMenuToggle}/>
-        <Shopsidebar categoryitem={categoryitem} />
-      </div>
+        {/* <div
+          className={`filter-side-bar  w-full sm:w-1/5  left-0 top-0 bg-white p-4 h-[100vh] fixed z-[998] transition-left ${
+            isfilterbar ? "-left-96 hidden" : "left-0 block"
+          } `}
+        >
+          <IoCloseSharp className="text-2xl  text-black z-[999]" onClick={handleMenuToggle}/>
+          <Shopsidebar categoryitem={categoryitem} />
+        </div> */}
       <div className=" w-full ">
         <div className="flex flex-wrap items-center justify-between">
           <div className=" flex flex-wrap gap-3 flex-row">

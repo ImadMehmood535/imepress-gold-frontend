@@ -5,7 +5,7 @@ import Productarea from "@/components/Productarea";
 import Salebanner from "@/components/Salebanner";
 import { dailysaledata } from "@/data/dailysaledata";
 import React, { useState } from "react";
-import Quickview from "./Quickview";
+
 import { featurecollection } from "@/data/featurecollection";
 import Shopsidebar from "./Shopsidebar";
 import { categoryitem } from "@/data/categoryitem";
@@ -34,7 +34,7 @@ const SaleComponent = () => {
           sorting={sorting}
         />
       </div>
-      <Quickview data={featurecollection} />
+     
       <Newsletter />
     </div>
   );

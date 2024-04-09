@@ -93,11 +93,9 @@
 
 .ProductCart .item .image-area .options,
 .ProductCart .item .image-area .btn-area,
-.ProductCart:hover .item .image-area img
- {
+.ProductCart:hover .item .image-area img {
   transition: 0.3s;
 }
-
 
 /* .ProductCart .item .image-area .btn-area {
   transition: 0.3s;
@@ -122,9 +120,37 @@ details[open] summary .svg-icon {
 .svg-icon {
   transition: all 0.3s;
 }
-.mob-menu-sidebar{
+.mob-menu-sidebar {
   box-shadow: -6px -5px 23px black;
 }
+.cate-slider .swiper-wrapper .swiper-slide:hover .btn-area a {
+  width: 200px !important;
+}
+
+.cate-slider .swiper-wrapper .swiper-slide .btn-area a {
+  transition: 0.3s !important;
+  width: 150px;
+}
+
+.cate-slider .swiper-wrapper .swiper-slide .image-area img {
+  transition: 0.3s;
+}
+
+.cate-slider .swiper-wrapper .swiper-slide:hover .image-area img {
+  transform: scale(1.1);
+}
+.feature-item .img-area {
+  overflow: hidden;
+}
+
+.feature-item .img-area img {
+  transition: 0.3s;
+}
+
+.feature-item .img-area:hover img {
+  transform: scale(1.1);
+}
+
 @media all and (max-width: 1024px) {
   .counter-list li {
     padding: 10px;
@@ -158,8 +184,3 @@ details[open] summary .svg-icon {
 .ql-editor {
   padding: 0px !important;
 }
-
-
-
-
- 

@@ -1,7 +1,6 @@
 "use client";
 import { Filter, Grid_2, Grid_3, Grid_4 } from "@/assets";
 import { RiArrowDropDownLine } from "react-icons/ri";
-
 import Image from "next/image";
 import React, { useState } from "react";
 import {
@@ -12,26 +11,53 @@ import {
   Button,
   Checkbox,
 } from "@nextui-org/react";
+import Shopsidebar from "./Shopsidebar";
+import { categoryitem } from "@/data/categoryitem";
+import { IoCloseSharp } from "react-icons/io5";
 
-const Filterbar = ({ setOption, option, setIsChecked, isChecked, sorting, setSorting }) => {
-  
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set([`${sorting}`]));
-  
+const Filterbar = ({
+  setOption,
+  option,
+  setIsChecked,
+  isChecked,
+  sorting,
+  setSorting,
+}) => {
+  const [isfilterbar, setIsfilterbar] = useState(false);
+
+  const handleMenuToggle = () => {
+    console.log(isfilterbar);
+    setIsfilterbar(!isfilterbar);
+  };
+
+  const [selectedKeys, setSelectedKeys] = React.useState(
+    new Set([`${sorting}`])
+  );
+
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys]
   );
-   
+
   const handleChange = () => {
     setIsChecked((prevState) => !prevState); // Toggle the state
   };
   return (
     <div className="Filterbar">
+      <div
+        className={`filter-side-bar  w-full sm:w-1/5  left-0 top-0 bg-white p-4 h-[100vh] fixed z-[998] transition-left ${
+          isfilterbar ? "-left-96 hidden" : "left-0 block"
+        } `}
+      >
+        <IoCloseSharp className="text-2xl  text-black z-[999]" onClick={handleMenuToggle}/>
+        <Shopsidebar categoryitem={categoryitem} />
+      </div>
       <div className=" w-full ">
         <div className="flex flex-wrap items-center justify-between">
           <div className=" flex flex-wrap gap-3 flex-row">
             <button
               id="filter"
+              onClick={handleMenuToggle}
               className="text-black font-medium text-lg px-5 py-2.5 text-center inline-flex items-center"
             >
               <Image

@@ -33,7 +33,8 @@ const SaleComponent = () => {
   return (
     <div className="sale">
       <Salebanner />
-      <div className="shop-area py-24 container w-full px-5 xl:w-[80%] mx-auto">
+      <div className="shop-area py-24 container w-full px-5 xl:w-[80%] mx-auto overflow-x-hidden">
+        
         <Filterbar
           setOption={setOption}
           option={option}

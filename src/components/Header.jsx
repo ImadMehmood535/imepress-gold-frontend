@@ -1,48 +1,33 @@
 import { Header_logo } from "@/assets";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import Searcharea from "./searchArea";
 import Link from "next/link";
-import useProductStore from "@/store/products";
-import { useRouter } from "next/navigation";
-import useUserStore from "@/store/user";
-import { AiOutlineLogin } from "react-icons/ai";
-import { toast } from "react-toastify";
-import { deleteCookie } from "@/hooks/useCookies";
-import Searcharea from "./Searcharea";
-import { IoMenu } from "react-icons/io5";
+import { menuItems } from "@/data/header";
 import { IoCloseSharp } from "react-icons/io5";
+import { RiMenu3Fill } from "react-icons/ri";
 
 const Header = () => {
+  const path = usePathname();
+  const [hoveredItem, setHoveredItem] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { products, clearCart } = useProductStore();
-  const [cardLength, setCardLength] = useState(0);
-  const [authenticated, setAuthenticated] = useState(false);
-  const { user, logoutUser } = useUserStore();
-
-  const router = useRouter();
+  const [activeLink, setActiveLink] = useState(null);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  const handleLogout = () => {
-    logoutUser();
-    toast.success("Successfully logout");
-    deleteCookie("token");
-    router.push("/");
+  const handleMouseLeave = () => {
+    setHoveredItem(null);
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setCardLength(products?.length);
-      setAuthenticated(user?.authorized);
-    });
-  }, [products, user]);
+  const handleMouseEnter = (itemId) => {
+    setHoveredItem(itemId);
+  };
 
   return (
     <div className="header">
@@ -74,95 +59,66 @@ const Header = () => {
               <div className="hidden md:block md:basis-1/2">
                 <Searcharea />
               </div>
-              <div className="basis-2/4 md:basis-2/6 text-right ">
-                {/* <ul
-                  className={`lg:flex lg:flex-row flex-col lg:h-full h-[100vh] lg:py-2 pt-24 items-start ${
-                    isMenuOpen ? "flex" : "hidden"
-                  }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-black md:text-black bg-white lg:bg-webGray-0`}
-                ></ul> */}
-                <ul
-                  className={`text-right flex flex-wrap gap-3 flex-row-reverse items-center text-white ${ isMenuOpen ? "flex" : "hidden"
-            }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-black md:text-black bg-white lg:bg-webGray-0`}
-                >
+              <div className="basis-2/4 md:basis-2/6 text-right">
+                <ul className="text-right flex flex-wrap gap-3 flex-row-reverse items-center text-white">
                   <li>
-                    <div className="lg:hidden lg:static   right-2 z-50">
+                    <div className="lg:hidden lg:static relative">
                       <button
                         onClick={handleMenuToggle}
                         className="text-white focus:outline-none"
                       >
-                        {isMenuOpen ? <IoMenu /> : <IoCloseSharp />}
+                        {isMenuOpen ? (
+                          <IoCloseSharp className="text-2xl absolute -top-24 right-0 text-black z-[999]" />
+                        ) : (
+                          <RiMenu3Fill className="text-2xl" />
+                        )}
                       </button>
-                    </div>{" "}
+                    </div>
                   </li>
-
                   <li className="relative">
-                    <FiShoppingCart
-                      onClick={() => router.push("/cart")}
-                      className="text-2xl cursor-pointer"
-                    />
-                    {cardLength > 0 && (
-                      <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
-                        {cardLength}
-                      </div>
-                    )}
+                    <FiShoppingCart className="text-2xl" />
+                    <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
+                      1
+                    </div>
                   </li>
-
                   <li>
                     <FaRegHeart className="text-2xl" />
                   </li>
-                  {authenticated && (
-                    <li>
-                      <AiOutlineLogin
-                        onClick={handleLogout}
-                        className=" cursor-pointer text-2xl"
-                      />
-                    </li>
-                  )}
-                  {!authenticated && (
-                    <li>
-                      <Link href={"log-in"}>
-                        <FiUser className=" cursor-pointer text-2xl" />
-                      </Link>
-                    </li>
-                  )}
+                  <li>
+                    <FiUser className="text-2xl" />
+                  </li>
                 </ul>
               </div>
             </div>
 
             <div className="hidden lg:block mb-3 cursor-pointer "></div>
           </div>
-          <div className={` container relative  w-full  mx-auto `}>
-            <ul
-              className={`lg:flex lg:flex-row flex-col lg:h-full h-[100vh] lg:pt-0 pt-16  items-start text-white${
-                isMenuOpen ? "flex" : "hidden"
-              } font-medium lg:max-w-[500px] max-w-[300px] text-center pt-20 w-full lg:space-x-4 lg:space-y-0 space-y-4 lg:justify-end items-center xl:justify-start lg:items-center lg:static  top-0 right-0 text-black md:text-black   lg:bg-transparent `}
-            >
-              <li className="max-w-[300px] w-full">
-                <Link href="/" className="text-white">
-                  Home
-                </Link>
-              </li>
 
-              <li className="max-w-[300px] w-full">
-                <Link href="/sale" className="text-white">
-                  Sale
-                </Link>
-              </li>
-              <li className="max-w-[300px] w-full relative group">
-                <Link href="/" className="text-white">
-                  Shop
-                </Link>
-              </li>
-              <li className="max-w-[300px] w-full">
-                <Link href="/" className="text-white">
-                  Category
-                </Link>
-              </li>
-              <li className="max-w-[300px] w-full">
-                <Link href="/blogs" className="text-white">
-                  Blog
-                </Link>
-              </li>
+          <div className="flex justify-start items-center w-full pt-4">
+            <ul
+              className={` lg:flex lg:flex-row flex-col lg:h-full h-[100vh] lg:py-2 pt-24 items-start  z-[998] ${
+                isMenuOpen ? "flex bg-white mob-menu-sidebar" : "hidden"
+              }  lg:max-w-[400px]  max-w-[300px] px-4   gap-4 lg:gap-0 font-bold lg:font-normal lg:text-center lg:rounded-[67px]   pt-20 w-full   items-start lg:items-center xl:justify-center  lg:static fixed top-0 right-0   text-black xl:text-white  lg:bg-webGray-0`}
+            >
+              {menuItems?.map((item, index) => (
+                <li
+                  key={index}
+                  onMouseEnter={() => handleMouseEnter(item.id)}
+                  onMouseLeave={handleMouseLeave}
+                  className="max-w-[100px] w-full whitespace-nowrap"
+                >
+                  <Link
+                    href={item.to}
+                    className={`cursor-pointer hover:text-webRed-0 transition-colors ${
+                      path === item.to || `/${hoveredItem}` === item?.to
+                        ? "bg-webLightYellow-0 py-1.5 px-3 rounded-[35px] whitespace-nowrap transition-all duration-500"
+                        : "py-1 px-3"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>

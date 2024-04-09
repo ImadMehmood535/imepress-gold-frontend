@@ -24,7 +24,7 @@ const Banner = () => {
           className="swiper-container"
         >
           <SwiperSlide className="bg-gradient-to-r from-[#F66660] to-[#F1D979] h-[100%]">
-            <div className="container px-5 xl:px-0 xl:w-[80%] mx-auto h-full flex flex-col md:flex-row  items-center text-white">
+            <div className="container px-5 py-24 xl:py-0 xl:px-0 xl:w-[80%] mx-auto h-full flex flex-col md:flex-row  items-center text-white">
               <div className="basis-full md:basis-2/4 ">
                 <h4 className="text-base pb-5 Urbanist-Medium">New Trend 2024</h4>
                 <h1 className="text-3xl xl:text-6xl font-medium  w-full md:w-[550px] pb-9">

@@ -122,6 +122,9 @@ details[open] summary .svg-icon {
 .svg-icon {
   transition: all 0.3s;
 }
+.mob-menu-sidebar{
+  box-shadow: -6px -5px 23px black;
+}
 @media all and (max-width: 1024px) {
   .counter-list li {
     padding: 10px;

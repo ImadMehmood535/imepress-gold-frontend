@@ -5,7 +5,7 @@ const InnerpageHeader = (props) => {
   return (
     <div className="innerpage-header bg-[#F7F7F7] text-center py-20">
       <div className="container max-w-[1440px]">
-        <h2 className="text-bold mb-5   ">{props.pageTitle}</h2>
+        <h2 className="text-bold mb-5  capitalize ">{props.pageTitle}</h2>
         <div className="breadcrumb">
           <ol
             className="flex items-center whitespace-nowrap justify-center"

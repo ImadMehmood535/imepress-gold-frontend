@@ -8,10 +8,10 @@ const Index = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [productItems, setProductItems] = useState(cartdata);
 
-   const initialQuantities = productItems.map(() => 1);
+  const initialQuantities = productItems.map(() => 1);
   const [quantities, setQuantities] = useState(initialQuantities);
 
-   const updateQuantity = (index, newQuantity) => {
+  const updateQuantity = (index, newQuantity) => {
     if (newQuantity <= 0) {
       return;
     }

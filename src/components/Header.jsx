@@ -1,7 +1,7 @@
 import { Header_logo } from "@/assets";
 import Image from "next/image";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
@@ -12,12 +12,19 @@ import Link from "next/link";
 import { menuItems } from "@/data/header";
 import { IoCloseSharp } from "react-icons/io5";
 import { RiMenu3Fill } from "react-icons/ri";
+import useProductStore from "@/store/products";
+import useUserStore from "@/store/user";
 
 const Header = () => {
   const path = usePathname();
   const [hoveredItem, setHoveredItem] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState(null);
+  const { products, clearCart } = useProductStore();
+  const [cardLength, setCardLength] = useState(0);
+  const [authenticated, setAuthenticated] = useState(false);
+  const { user, logoutUser } = useUserStore();
+
+  const router = useRouter();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,6 +35,20 @@ const Header = () => {
   const handleMouseEnter = (itemId) => {
     setHoveredItem(itemId);
   };
+
+  const handleLogout = () => {
+    logoutUser();
+    toast.success("Successfully logout");
+    deleteCookie("token");
+    router.push("/");
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCardLength(products?.length);
+      setAuthenticated(user?.authorized);
+    });
+  }, [products, user]);
 
   return (
     <div className="header">
@@ -76,17 +97,35 @@ const Header = () => {
                     </div>
                   </li>
                   <li className="relative">
-                    <FiShoppingCart className="text-2xl" />
-                    <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
-                      1
-                    </div>
+                    <FiShoppingCart
+                      onClick={() => router.push("/cart")}
+                      className="text-2xl cursor-pointer"
+                    />
+                    {cardLength > 0 && (
+                      <div className="w-[20px] h-[20px] flex flex-wrap items-start justify-center text-white bg-themeSecondry-0 rounded-full absolute -top-[15px] -right-[10px]">
+                        {cardLength}
+                      </div>
+                    )}
                   </li>
+
                   <li>
                     <FaRegHeart className="text-2xl" />
                   </li>
-                  <li>
-                    <FiUser className="text-2xl" />
-                  </li>
+                  {authenticated && (
+                    <li>
+                      <AiOutlineLogin
+                        onClick={handleLogout}
+                        className=" cursor-pointer text-2xl"
+                      />
+                    </li>
+                  )}
+                  {!authenticated && (
+                    <li>
+                      <Link href={"log-in"}>
+                        <FiUser className=" cursor-pointer text-2xl" />
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

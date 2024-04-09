@@ -55,7 +55,7 @@ API.updateBrand = (data, id) => {
 
 //Category
 
-API.getAllCategpries = () => {
+API.getAllCategories = () => {
   return API.get("category/all");
 };
 
@@ -135,12 +135,25 @@ API.getOrders = () => {
 API.getProducts = () => {
   return API.get("product");
 };
+
+API.getProductsQueryParams = (type) => {
+  return API.get(`product/query?type=${type}`);
+};
+
 API.addProduct = (data) => {
   return API.post("product", data);
 };
 
 API.updateProduct = (id, data) => {
   return API.patch(`product/${id}`, data);
+};
+
+API.getSingleProduct = (slug) => {
+  return API.get(`product/${slug}`);
+};
+
+API.getProductByCategoryID = (id) => {
+  return API.get(`product/by-category?categoryId=${id}`);
 };
 
 export { API };

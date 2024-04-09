@@ -40,7 +40,7 @@ const Filterbar = ({
   );
 
   const handleChange = () => {
-    setIsChecked((prevState) => !prevState); // Toggle the state
+    setIsChecked((prevState) => !prevState); 
   };
   return (
     <div className="Filterbar">

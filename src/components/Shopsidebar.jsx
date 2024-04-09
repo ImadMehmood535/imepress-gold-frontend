@@ -4,11 +4,11 @@ import { Slider } from "@nextui-org/react";
 import { Checkbox } from "@nextui-org/react";
 import { brandsitem } from "@/data/brandsitem";
 
-const Shopsidebar = ({ categoryitem }) => {
+const Shopsidebar = ({ brands, categoryitem }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen); // Toggle the state
+    setIsOpen(!isOpen);
   };
   const [value, setValue] = React.useState([100, 300]);
 
@@ -27,35 +27,35 @@ const Shopsidebar = ({ categoryitem }) => {
 
           {isOpen && (
             <div className="p-4 max-w-lg mx-auto">
-              {categoryitem.map((category) => (
+              {categoryitem?.map((category) => (
                 <details key={category.id} className="mb-2">
                   <summary className="flex items-center font-bold cursor-pointer  ">
-                    <span className="font-semibold">{category.name}</span>
+                    <span className="font-semibold">{category?.name}</span>
                     <button className="ml-auto">
                       <FaAngleDown className="svg-icon" />
                     </button>
                   </summary>
-                  {category.subCategories.length > 0 && (
+                  {category?.subCategories?.length > 0 && (
                     <ul className="ml-8 space-y-4">
-                      {category.subCategories.map((subCategory, index) => (
+                      {category?.subCategories?.map((subCategory, index) => (
                         <li key={index}>
-                          {subCategory.subCategories &&
-                          subCategory.subCategories.length > 0 ? (
+                          {subCategory?.subCategories &&
+                          subCategory?.subCategories?.length > 0 ? (
                             <details className="mb-2">
                               <summary className="bg-gray-100 p-3 rounded-lg cursor-pointer shadow">
                                 <span className="font-semibold">
-                                  {subCategory.name}
+                                  {subCategory?.name}
                                 </span>
                               </summary>
                               <div className="bg-white p-4">
                                 <span className="font-semibold">
-                                  Content for {subCategory.name}
+                                  Content for {subCategory?.name}
                                 </span>
                               </div>
                             </details>
                           ) : (
                             <span className="font-semibold">
-                              {subCategory.name}
+                              {subCategory?.name}
                             </span>
                           )}
                         </li>
@@ -72,7 +72,7 @@ const Shopsidebar = ({ categoryitem }) => {
             className="flex flex-wrap justify-between items-center w-full text-[#121212] font-bold text-xl mb-4"
             onClick={toggleDropdown}
           >
-            Size
+            Price Range
             <FaAngleDown />
           </h4>
           <div className="flex flex-col gap-2 w-full h-full max-w-md items-start justify-center">
@@ -111,8 +111,10 @@ const Shopsidebar = ({ categoryitem }) => {
             <FaAngleDown />
           </h4>
           <div className="flex gap-4 flex-col">
-            {brandsitem.map((brand, index ) => (
-              <Checkbox key={index} color="default">{brand.name}</Checkbox>
+            {brands?.map((brand, index) => (
+              <Checkbox key={index} color="default" className="">
+                {brand?.name}
+              </Checkbox>
             ))}
           </div>
         </div>
